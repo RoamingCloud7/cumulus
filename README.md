@@ -1,8 +1,19 @@
+<!-- ABOUT THE PROJECT -->
 ## Cumulus
+Cumulus is a full-stack personal blog website that allows users to create, view, and interact with blog posts.
 
-A full-stack personal blog website that allows users to create, view, and interact with blog posts.
+### Built With
+* HTML
+* CSS
+* Vue
+* Axios
+* Spring Boot
+* MyBatis
+* MySQL
+* Redis
 
-- Built an interactive user interface using Vue.js and handled HTTP requests with Axios.
-- Constructed the backend service with Spring Boot, MyBatis and MySQL database.
-- Implemented user login by integrating Shiro, Redis and JWT.
+### Features
+- Implemented user login and logout.
+- Guest: browse and view the details of blog posts.
+- User: create, view, edit and 
 - Enabled editing blog posts with markdown editor.
