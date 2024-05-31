@@ -15,5 +15,5 @@ Cumulus is a full-stack personal blog website that allows users to create, view,
 ### Features
 - Implemented user login and logout.
 - Guest: browse and view the details of blog posts.
-- User: create, view, edit and 
+- User: create, view, edit and delete the blog posts.
 - Enabled editing blog posts with markdown editor.
