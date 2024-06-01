@@ -26,26 +26,26 @@ Cumulus is a full-stack personal blog website that allows users to create, view,
 
 ### Screenshot
 Login Page:
-<br>
+&emsp;
 ![Login Page](/screenshots/Login.png "Login Page")
-<br>
+&emsp;
 Home Page for Guest:
-<br>
+&emsp;
 ![Home Page for Guest](/screenshots/Guest_Home.png "Home Page for Guest")
-<br>
+&emsp;
 Blog Post Detail Page for Guest:
-<br>
+&emsp;
 ![Blog Post Detail Page for Guest](/screenshots/Guest_Detail.png "Blog Post Detail Page for Guest")
-<br>
+&emsp;
 Home Page for User:
-<br>
+&emsp;
 ![Home Page for User](/screenshots/User_Home.png "Home Page for User")
-<br>
+&emsp;
 Blog Post Detail Page for User:
-<br>
+&emsp;
 ![Blog Detail Page for User](/screenshots/User_Detail.png "Blog Detail Page for User")
-<br>
+&emsp;
 Blog Post Create or Edit Page:
-<br>
+&emsp;
 ![Blog Post Create or Edit Page](/screenshots/User_Edit.png "Blog Post Create or Edit Page")
 
