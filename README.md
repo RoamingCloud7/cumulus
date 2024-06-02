@@ -1,6 +1,6 @@
 <!-- ABOUT THE PROJECT -->
 ## Cumulus
-Cumulus is a full-stack personal blog website that allows users to create, view, and interact with blog posts.
+Cumulus is a full-stack personal blog website that allows guests and users to read and interact with blog posts.
 
 ### Built With
 * HTML
@@ -22,7 +22,7 @@ Cumulus is a full-stack personal blog website that allows users to create, view,
 ### Feature
 - Enable editing blog posts with markdown editor.
 - Handle HTTP requests with Axios.
-- Implement user login by integrating Shiro, Redis and JWT.
+- Implement cross-origin authentication by integrating Shiro, Redis and JWT.
 
 ### Screenshot
 
