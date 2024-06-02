@@ -32,6 +32,7 @@ public class ShiroConfig {
 
     @Bean
     public SessionManager sessionManager(RedisSessionDAO redisSessionDAO) {
+        // Configure session management with Redis
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setSessionDAO(redisSessionDAO);
         return sessionManager;
@@ -40,12 +41,11 @@ public class ShiroConfig {
     public DefaultWebSecurityManager securityManager(AccountRealm accountRealm,
                                                      SessionManager sessionManager,
                                                      RedisCacheManager redisCacheManager) {
+        // Configure the main security manager
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager(accountRealm);
         securityManager.setSessionManager(sessionManager);
         securityManager.setCacheManager(redisCacheManager);
-        /*
-         * 关闭shiro自带的session，详情见文档
-         */
+        // Disable Shiro's default session management to let user login by JWT
         DefaultSubjectDAO subjectDAO = new DefaultSubjectDAO();
         DefaultSessionStorageEvaluator defaultSessionStorageEvaluator = new DefaultSessionStorageEvaluator();
         defaultSessionStorageEvaluator.setSessionStorageEnabled(false);
@@ -55,6 +55,7 @@ public class ShiroConfig {
     }
     @Bean
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
+        // Define URL patterns and their associated filters
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
         Map<String, String> filterMap = new LinkedHashMap<>();
         filterMap.put("/**", "jwt"); // 主要通过注解方式校验权限
@@ -64,6 +65,7 @@ public class ShiroConfig {
     @Bean("shiroFilterFactoryBean")
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager,
                                                          ShiroFilterChainDefinition shiroFilterChainDefinition) {
+        // Configure Shiro filter factory bean
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
         shiroFilter.setSecurityManager(securityManager);
 

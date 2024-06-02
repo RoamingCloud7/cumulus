@@ -23,9 +23,7 @@ public class JwtUtils {
     private long expire;
     private String header;
 
-    /**
-     * 生成jwt token
-     */
+    // Generate Token
     public String generateToken(long userId) {
         Date nowDate = new Date();
         //过期时间
@@ -39,7 +37,7 @@ public class JwtUtils {
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
-
+    // Extract the information of token
     public Claims getClaimByToken(String token) {
         try {
             return Jwts.parser()
@@ -52,10 +50,7 @@ public class JwtUtils {
         }
     }
 
-    /**
-     * token是否过期
-     * @return  true：过期
-     */
+    // Check if expired
     public boolean isTokenExpired(Date expiration) {
         return expiration.before(new Date());
     }

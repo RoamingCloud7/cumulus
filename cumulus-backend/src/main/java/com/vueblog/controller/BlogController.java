@@ -23,7 +23,6 @@ public class BlogController {
 
     @Autowired
     BlogService blogService;
-    //木有值默认为1
     @GetMapping("/blogs")
     public Result list(@RequestParam(defaultValue = "1") Integer currentPage){
         Page page = new Page(currentPage, 5);
@@ -41,17 +40,12 @@ public class BlogController {
     }
     //@Validated校验
     //@RequestBody
-    //添加删除  木有id则添加 有id则编辑
-    @RequiresAuthentication  //需要认证之后才能操作
+    @RequiresAuthentication
     @PostMapping("/blog/edit")
     public Result edit(@Validated @RequestBody Blog blog){
-
-        //一个空对象用于赋值
         Blog temp = null;
-        //如果有id则是编辑
         if(blog.getId() != null){
-            temp = blogService.getById(blog.getId());//将数据库的内容传递给temp
-            //只能编辑自己的文章
+            temp = blogService.getById(blog.getId());
             Assert.isTrue(temp.getUserId().longValue()== ShiroUtil.getProfile().getId().longValue(),"没有编辑权限");
 
         } else {
@@ -68,17 +62,15 @@ public class BlogController {
     }
 
     //@PathVariable动态路由
-    @RequiresAuthentication  //需要认证之后才能操作
+    @RequiresAuthentication
     @PostMapping("/blogdel/{id}")
     public Result del(@PathVariable Long id){
         boolean b = blogService.removeById(id);
-        //判断是否为空 为空则断言异常
-      if(b==true){
-
-          return Result.succ("文章删除成功");
-      }else{
-          return Result.fail("文章删除失败");
-      }
+        if(b==true){
+            return Result.succ("文章删除成功");
+        }else{
+            return Result.fail("文章删除失败");
+        }
     }
 
 }
